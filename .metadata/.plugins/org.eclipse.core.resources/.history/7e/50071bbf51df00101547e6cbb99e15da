@@ -1,0 +1,27 @@
+package ui2;
+
+import java.time.Duration;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class Assertapply2 {
+	
+	@Test
+	public void practice() {
+		
+		WebDriverManager.chromedriver().setup();
+		ChromeDriver driver = new ChromeDriver();
+		driver.get("https://www.ebay.com/");
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
+		String Expectedtitle = "Electronics, Cars, Fashion, Collectibles & More | eBay";
+		String Actualtitle = driver.getTitle();
+		Assert.assertEquals(Actualtitle,Expectedtitle);
+		System.out.println("String matches successfully");
+	}
+
+}
