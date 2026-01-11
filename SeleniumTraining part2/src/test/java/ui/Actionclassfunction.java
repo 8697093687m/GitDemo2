@@ -3,6 +3,7 @@ package ui;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -48,7 +49,10 @@ public class Actionclassfunction {
 		WebElement target = driver.findElement(By.id("droppable"));
 		action.dragAndDrop(source,target).perform();
 		System.out.println("All done");
-		
+		driver.navigate().to("https://rahulshettyacademy.com/AutomationPractice/");
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		WebElement etr = driver.findElement(By.xpath("//input[@value='radio1']"));
+		js.executeScript("arguments[0].click();",etr);
 	}	
 
 }
